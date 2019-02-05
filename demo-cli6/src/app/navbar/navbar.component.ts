@@ -2,7 +2,9 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'navbar-cmp',
-  templateUrl: 'navbar.component.html'
+  templateUrl: 'navbar.component.html',
+  styleUrls: ['./navbar.component.css'],
+
 })
 export class NavbarComponent {
 

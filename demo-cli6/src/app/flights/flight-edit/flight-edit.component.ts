@@ -3,11 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { FlightService } from '../flight.service';
 import { Flight } from '../flight';
 import { map, switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
-
+import { of, from } from 'rxjs';
+import {Router} from '@angular/router';
 @Component({
   selector: 'flight-edit',
-  templateUrl: './flight-edit.component.html'
+  templateUrl: './flight-edit.component.html',
+  styleUrls: ['./flight-edit.component.css']
 })
 export class FlightEditComponent implements OnInit {
 
@@ -17,7 +18,8 @@ export class FlightEditComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private flightService: FlightService) { 
+        private router: Router,
+        private flightService: FlightService) {
     }
 
     ngOnInit() {
@@ -32,24 +34,25 @@ export class FlightEditComponent implements OnInit {
                 })
             )
             .subscribe(
-                flight => { 
-                    this.flight = flight; 
-                    this.errors = ''; 
+                flight => {
+                    this.flight = flight;
+                    this.errors = '';
                 },
-                err => { 
-                    this.errors = 'Error loading'; 
+                err => {
+                    this.errors = 'Error loading';
                 }
             );
     }
 
     save() {
         this.flightService.save(this.flight).subscribe(
-            flight => { 
-                this.flight = flight; 
-                this.errors = 'Save was successful!'; 
+            flight => {
+                this.flight = flight;
+                this.errors = 'Save was successful!';
+                this.router.navigate(['flight']);
             },
-            err => { 
-                this.errors = 'Error saving'; 
+            err => {
+                this.errors = 'Error saving';
             }
         );
     }

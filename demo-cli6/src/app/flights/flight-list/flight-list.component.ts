@@ -6,7 +6,8 @@ import { Flight } from '../flight';
 
 @Component({
     selector: 'flight',
-    templateUrl: 'flight-list.component.html'
+    templateUrl: 'flight-list.component.html',
+    styleUrls: ['./flight-list.component.css']
 })
 export class FlightListComponent {
 

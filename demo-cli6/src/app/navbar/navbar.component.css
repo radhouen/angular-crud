@@ -1,0 +1,9 @@
+nav.navbar.navbar-default {
+  background-color: #0769a5;
+}
+p{
+  color: #ffffff;
+}
+.navbar-brand, i, p {
+  color: #ffffff !important;
+}

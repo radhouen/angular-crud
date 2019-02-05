@@ -1,0 +1,10 @@
+.sidebar-wrapper {
+  background-color: #0769a5;
+  color: #fff;
+}
+p{
+  color: #fff;
+}
+.simple-text, i, p {
+  color: #ffffff !important;
+}
